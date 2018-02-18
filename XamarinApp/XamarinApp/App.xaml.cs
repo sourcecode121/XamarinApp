@@ -9,14 +9,25 @@ namespace XamarinApp
 {
 	public partial class App : Application
 	{
+        public static string DatabaseConnection = string.Empty;
+
 		public App ()
 		{
 			InitializeComponent();
 
 			MainPage = new NavigationPage(new LoginPage());
-		}
+        }
 
-		protected override void OnStart ()
+        public App(string dbConnection)
+        {
+            InitializeComponent();
+
+            MainPage = new NavigationPage(new LoginPage());
+
+            DatabaseConnection = dbConnection;
+        }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
